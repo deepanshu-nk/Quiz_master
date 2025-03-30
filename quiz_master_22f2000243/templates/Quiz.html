@@ -1,0 +1,57 @@
+{%extends "Admin_navbar.html"%}
+{%block content%}
+<!-- Main Content -->
+<div class="container mt-4">
+  {%if Chapters%}
+  <div class="row">
+    {%for chap in Chapters%}
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header text-center">
+          {{chap.Chapter_name}}
+        </div>
+        <div class="card-body">
+          {%if chap.question%}
+          <table class="table table-bordered text-center">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Question_Topics</th>
+                <th>No of Question</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {%for quis in chap.question%}
+              <tr>
+                <td>{{quis.id}}</td>
+                <td>{{quis.question_title}}</td>
+                <td>{{chap.Question}}</td>
+                <td><a href="/edit/{{id}}/{{name}}" class="btn btn-primary btn-sm">Edit</a> <a
+                    href="/delets/{{quis.id}}/{{name}}" class="btn btn-danger btn-sm">Delete</a></td>
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+          {%endif%}
+          <a href="/add_question/{{chap.id}}/{{chap.Chapter_name}}" class="btn add-chapter-btn w-100 mt-2">Add
+            Question</a>
+          <a href="/add_quiz/{{chap.id}}" class="btn add-chapter-btn w-100 mt-2">Add Quiz</a>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+
+  </div>
+
+  <!-- Footer Section -->
+  <div class="text-center mt-4">
+    <p class="text-muted"><a href="/add_quiz/{{chapter_id}}">click hear to add new Quiz</a></p>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+{%endblock%}

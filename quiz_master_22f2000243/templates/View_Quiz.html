@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz Details</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Quiz Details Modal (Automatically Shown) -->
+    <div class="modal fade show" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true"
+        style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quizModalLabel">View the Quiz</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">ID:</label>
+                            <input type="text" class="form-control" value="{{quiz}}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Subject:</label>
+                            <input type="text" class="form-control bg-success text-white" value="{{course_name}}"
+                                readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Chapter:</label>
+                            <input type="text" class="form-control bg-primary text-white" value="{{chapter}}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Number of Questions:</label>
+                            <input type="text" class="form-control" value="{{Ques}}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Scheduled Date:</label>
+                            <input type="text" class="form-control bg-warning" value="{{date}}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Duration (hh:mm):</label>
+                            <input type="text" class="form-control" value="{{time}}" readonly>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="/user/{{name}}" class="btn btn-outline-primary btn-start">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+{%extends "Admin_navbar.html"%}
+{%block content%}
+<!-- Main Content -->
+<div class="container mt-4">
+  {%if course%}
+  <div class="row">
+    {%for cour in course%}
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header text-center">
+          <a href="/edit_course/{{cour.id}}/{{name}}" class="text-decoration-none">
+            {{cour.course_name}}
+          </a>
+        </div>
+        <div class="card-body">
+          {%if cour.chapter%}
+          <table class="table table-bordered text-center">
+            <thead>
+              <tr>
+                <th>Chapter Name</th>
+                <th>Topics</th>
+                <th>No of Question</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {%for chap in cour.chapter%}
+              <tr>
+                <td>{{chap.Chapter_name}}</td>
+                <td>{{chap.Topics}}</td>
+                <td>{{chap.Question}}</td>
+                <td><a href="/edit/{{chap.id}}/{{name}}" class="btn btn-primary btn-sm">Edit</a> <a
+                    href="/delete/{{chap.id}}/{{name}}" class="btn btn-danger btn-sm">Delete</a></td>
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+          {%endif%}
+          <a href="/add_chapter/{{cour.id}}/{{cour.course_name}}/{{name}}"
+            class="btn add-chapter-btn w-100 mt-2">Chapter</a>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+  </div>
+
+  <!-- Footer Section -->
+  <div class="text-center mt-4">
+    <p class="text-muted"><a href="/add_course/{{name}}">click hear to add new courses</a></p>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+{%endblock%}
